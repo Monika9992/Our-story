@@ -35,10 +35,10 @@
             <p class="hero-subtitle">从相遇的那一刻起，每一天都是美好的</p>
             <div class="hero-date">
                 <span class="date-label">在一起</span>
-                <span class="date-count" id="daysTogether">--</span>
+                <span class="date-count" id="heroDaysTogether">--</span>
                 <span class="date-label">天</span>
             </div>
-            <a href="#timeline" class="scroll-btn">探索我们的故事 ↓</a>
+            <a href="#timeline" class="scroll-btn">查看我们的纪念日 ↓</a>
         </div>
         <div class="floating-hearts">
             <span class="heart">💕</span>
@@ -49,52 +49,46 @@
         </div>
     </section>
 
-    <!-- 我们的故事 -->
-    <section id="timeline" class="stories-section">
-        <h2 class="section-title">我们的故事</h2>
-        <p class="section-subtitle">每一个瞬间都值得珍藏</p>
+    <!-- 纪念日 -->
+    <section id="timeline" class="memorial-section">
+        <h2 class="section-title">我们的纪念日</h2>
+        <p class="section-subtitle">每一个日子都值得铭记</p>
         
-        <div class="stories-grid">
-            <div class="story-card" style="--card-color: #ff6b8a;">
-                <div class="card-emoji">🌟</div>
-                <h3>第一次相遇</h3>
-                <span class="card-date">2024年1月1日</span>
-                <p>那是我们第一次见面，空气中仿佛都弥漫着甜甜的味道。从那一刻起，我知道我的生活即将发生改变。</p>
+        <div class="memorial-grid">
+            <div class="memorial-card">
+                <div class="memorial-emoji">💑</div>
+                <h3>在一起纪念日</h3>
+                <span class="memorial-date">2025年7月5日</span>
+                <p class="memorial-detail">从那天起，两颗心紧紧相连</p>
+                <div class="memorial-days" id="togetherDays">0</div>
+                <span class="memorial-days-label">天</span>
             </div>
             
-            <div class="story-card" style="--card-color: #ffa0b4;">
-                <div class="card-emoji">☕</div>
-                <h3>第一次约会</h3>
-                <span class="card-date">2024年1月15日</span>
-                <p>紧张又期待的第一次约会，手心里全是汗。但你的笑容让我所有的不安都烟消云散了。</p>
+            <div class="memorial-card">
+                <div class="memorial-emoji">💒</div>
+                <h3>结婚纪念日</h3>
+                <span class="memorial-date">2026年1月19日</span>
+                <p class="memorial-detail">执子之手，与子偕老</p>
+                <div class="memorial-days" id="marriedDays">0</div>
+                <span class="memorial-days-label">天</span>
             </div>
             
-            <div class="story-card" style="--card-color: #f093fb;">
-                <div class="card-emoji">💝</div>
-                <h3>正式在一起</h3>
-                <span class="card-date">2026年1月19日</span>
-                <p>在这个特别的日子里，你说出了那句让我心跳加速的话。从此，我们不再是两个人，而是一起了。</p>
+            <div class="memorial-card">
+                <div class="memorial-emoji">👸</div>
+                <h3>老婆生日</h3>
+                <span class="memorial-date">农历正月廿一（公历2月27日）</span>
+                <p class="memorial-detail">你是世界上最美好的女孩</p>
+                <div class="memorial-years" id="wifeAge">0</div>
+                <span class="memorial-years-label">岁</span>
             </div>
             
-            <div class="story-card" style="--card-color: #4facfe;">
-                <div class="card-emoji">✈️</div>
-                <h3>第一次旅行</h3>
-                <span class="card-date">2024年5月1日</span>
-                <p>一起去看世界的感觉真好。无论走到哪里，只要你在身边，就是最美的风景。</p>
-            </div>
-            
-            <div class="story-card" style="--card-color: #43e97b;">
-                <div class="card-emoji">🎂</div>
-                <h3>一起过生日</h3>
-                <span class="card-date">2024年8月20日</span>
-                <p>第一次一起过生日，蛋糕很甜，但不及你对我笑的万分之一甜蜜。</p>
-            </div>
-            
-            <div class="story-card" style="--card-color: #fa709a;">
-                <div class="card-emoji">🏠</div>
-                <h3>温暖的小家</h3>
-                <span class="card-date">2025年1月1日</span>
-                <p>有了属于我们自己的小窝，每天下班回家，看到那盏为我留的灯，就觉得好幸福。</p>
+            <div class="memorial-card">
+                <div class="memorial-emoji">🤴</div>
+                <h3>老公生日</h3>
+                <span class="memorial-date">农历腊月十三（公历1月11日）</span>
+                <p class="memorial-detail">努力成为更好的人来守护你</p>
+                <div class="memorial-years" id="husbandAge">0</div>
+                <span class="memorial-years-label">岁</span>
             </div>
         </div>
     </section>
@@ -176,7 +170,7 @@
     <!-- 页脚 -->
     <footer class="footer">
         <p>Made with ❤️ for us</p>
-        <p class="footer-date">© 2024 - 永远</p>
+        <p class="footer-date">© 2025 - 永远</p>
     </footer>
 
     <script src="js/main.js"></script>
