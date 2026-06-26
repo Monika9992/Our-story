@@ -1,27 +1,27 @@
-﻿<!DOCTYPE html>
-<html lang=\"zh-CN\">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta charset=\"UTF-8\">
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我们的故事</title>
-    <link rel=\"stylesheet\" href=\"css/style.css\">
-    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
-    <link href=\"https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500&display=swap\" rel=\"stylesheet\">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- 粒子背景 -->
-    <div class=\"particles\" id=\"particles\"></div>
+    <div class="particles" id="particles"></div>
     
     <!-- 导航栏 -->
-    <nav class=\"navbar\">
-        <div class=\"nav-brand\">❤️ 我们的故事</div>
-        <ul class=\"nav-links\">
-            <li><a href=\"#home\">首页</a></li>
-            <li><a href=\"#timeline\">时间线</a></li>
-            <li><a href=\"#gallery\">相册</a></li>
-            <li><a href=\"#about\">关于我们</a></li>
+    <nav class="navbar">
+        <div class="nav-brand">❤️ 我们的故事</div>
+        <ul class="nav-links">
+            <li><a href="#home">首页</a></li>
+            <li><a href="#timeline">故事</a></li>
+            <li><a href="#gallery">相册</a></li>
+            <li><a href="#about">关于我们</a></li>
         </ul>
-        <div class=\"hamburger\">
+        <div class="hamburger">
             <span></span>
             <span></span>
             <span></span>
@@ -29,168 +29,156 @@
     </nav>
 
     <!-- 首页英雄区 -->
-    <section id=\"home\" class=\"hero\">
-        <div class=\"hero-content\">
-            <h1 class=\"hero-title\">我们俩的故事</h1>
-            <p class=\"hero-subtitle\">从相遇的那一刻起，每一天都是美好的</p>
-            <div class=\"hero-date\">
-                <span class=\"date-label\">在一起</span>
-                <span class=\"date-count\" id=\"daysTogether\">--</span>
-                <span class=\"date-label\">天</span>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">我们俩的故事</h1>
+            <p class="hero-subtitle">从相遇的那一刻起，每一天都是美好的</p>
+            <div class="hero-date">
+                <span class="date-label">在一起</span>
+                <span class="date-count" id="daysTogether">--</span>
+                <span class="date-label">天</span>
             </div>
-            <a href=\"#timeline\" class=\"scroll-btn\">探索我们的故事 ↓</a>
+            <a href="#timeline" class="scroll-btn">探索我们的故事 ↓</a>
         </div>
-        <div class=\"floating-hearts\">
-            <span class=\"heart\">💕</span>
-            <span class=\"heart\">💖</span>
-            <span class=\"heart\">✨</span>
-            <span class=\"heart\">💗</span>
-            <span class=\"heart\">🌹</span>
+        <div class="floating-hearts">
+            <span class="heart">💕</span>
+            <span class="heart">💖</span>
+            <span class="heart">✨</span>
+            <span class="heart">💗</span>
+            <span class="heart">🌹</span>
         </div>
     </section>
 
-    <!-- 故事时间线 -->
-    <section id=\"timeline\" class=\"timeline-section\">
-        <h2 class=\"section-title\">我们的故事</h2>
-        <p class=\"section-subtitle\">每一个瞬间都值得珍藏</p>
+    <!-- 我们的故事 -->
+    <section id="timeline" class="stories-section">
+        <h2 class="section-title">我们的故事</h2>
+        <p class="section-subtitle">每一个瞬间都值得珍藏</p>
         
-        <div class=\"timeline\">
-            <div class=\"timeline-item left\">
-                <div class=\"timeline-content\">
-                    <div class=\"timeline-icon\">🌟</div>
-                    <h3>第一次相遇</h3>
-                    <span class=\"timeline-date\">2024年1月1日</span>
-                    <p>那是我们第一次见面，空气中仿佛都弥漫着甜甜的味道。从那一刻起，我知道我的生活即将发生改变。</p>
-                </div>
+        <div class="stories-grid">
+            <div class="story-card" style="--card-color: #ff6b8a;">
+                <div class="card-emoji">🌟</div>
+                <h3>第一次相遇</h3>
+                <span class="card-date">2024年1月1日</span>
+                <p>那是我们第一次见面，空气中仿佛都弥漫着甜甜的味道。从那一刻起，我知道我的生活即将发生改变。</p>
             </div>
             
-            <div class=\"timeline-item right\">
-                <div class=\"timeline-content\">
-                    <div class=\"timeline-icon\">☕</div>
-                    <h3>第一次约会</h3>
-                    <span class=\"timeline-date\">2024年1月15日</span>
-                    <p>紧张又期待的第一次约会，手心里全是汗。但你的笑容让我所有的不安都烟消云散了。</p>
-                </div>
+            <div class="story-card" style="--card-color: #ffa0b4;">
+                <div class="card-emoji">☕</div>
+                <h3>第一次约会</h3>
+                <span class="card-date">2024年1月15日</span>
+                <p>紧张又期待的第一次约会，手心里全是汗。但你的笑容让我所有的不安都烟消云散了。</p>
             </div>
             
-            <div class=\"timeline-item left\">
-                <div class=\"timeline-content\">
-                    <div class=\"timeline-icon\">💝</div>
-                    <h3>正式在一起</h3>
-                    <span class=\"timeline-date\">2024年2月14日</span>
-                    <p>在这个特别的日子里，你说出了那句让我心跳加速的话。从此，我们不再是两个人，而是一起了。</p>
-                </div>
+            <div class="story-card" style="--card-color: #f093fb;">
+                <div class="card-emoji">💝</div>
+                <h3>正式在一起</h3>
+                <span class="card-date">2026年1月19日</span>
+                <p>在这个特别的日子里，你说出了那句让我心跳加速的话。从此，我们不再是两个人，而是一起了。</p>
             </div>
             
-            <div class=\"timeline-item right\">
-                <div class=\"timeline-content\">
-                    <div class=\"timeline-icon\">✈️</div>
-                    <h3>第一次旅行</h3>
-                    <span class=\"timeline-date\">2024年5月1日</span>
-                    <p>一起去看世界的感觉真好。无论走到哪里，只要你在身边，就是最美的风景。</p>
-                </div>
+            <div class="story-card" style="--card-color: #4facfe;">
+                <div class="card-emoji">✈️</div>
+                <h3>第一次旅行</h3>
+                <span class="card-date">2024年5月1日</span>
+                <p>一起去看世界的感觉真好。无论走到哪里，只要你在身边，就是最美的风景。</p>
             </div>
             
-            <div class=\"timeline-item left\">
-                <div class=\"timeline-content\">
-                    <div class=\"timeline-icon\">🎂</div>
-                    <h3>一起过生日</h3>
-                    <span class=\"timeline-date\">2024年8月20日</span>
-                    <p>第一次一起过生日，蛋糕很甜，但不及你对我笑的万分之一甜蜜。</p>
-                </div>
+            <div class="story-card" style="--card-color: #43e97b;">
+                <div class="card-emoji">🎂</div>
+                <h3>一起过生日</h3>
+                <span class="card-date">2024年8月20日</span>
+                <p>第一次一起过生日，蛋糕很甜，但不及你对我笑的万分之一甜蜜。</p>
             </div>
             
-            <div class=\"timeline-item right\">
-                <div class=\"timeline-content\">
-                    <div class=\"timeline-icon\">🏠</div>
-                    <h3>温暖的小家</h3>
-                    <span class=\"timeline-date\">2025年1月1日</span>
-                    <p>有了属于我们自己的小窝，每天下班回家，看到那盏为我留的灯，就觉得好幸福。</p>
-                </div>
+            <div class="story-card" style="--card-color: #fa709a;">
+                <div class="card-emoji">🏠</div>
+                <h3>温暖的小家</h3>
+                <span class="card-date">2025年1月1日</span>
+                <p>有了属于我们自己的小窝，每天下班回家，看到那盏为我留的灯，就觉得好幸福。</p>
             </div>
         </div>
     </section>
 
     <!-- 照片墙 -->
-    <section id=\"gallery\" class=\"gallery-section\">
-        <h2 class=\"section-title\">美好瞬间</h2>
-        <p class=\"section-subtitle\">每一张照片都是一个珍贵的回忆</p>
+    <section id="gallery" class="gallery-section">
+        <h2 class="section-title">美好瞬间</h2>
+        <p class="section-subtitle">每一张照片都是一个珍贵的回忆</p>
         
-        <div class=\"gallery-grid\">
-            <div class=\"gallery-item\">
-                <div class=\"photo-placeholder\">📸</div>
-                <p class=\"photo-caption\">第一次合照</p>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="photo-placeholder">📸</div>
+                <p class="photo-caption">第一次合照</p>
             </div>
-            <div class=\"gallery-item\">
-                <div class=\"photo-placeholder\">🌅</div>
-                <p class=\"photo-caption\">一起看的日落</p>
+            <div class="gallery-item">
+                <div class="photo-placeholder">🌅</div>
+                <p class="photo-caption">一起看的日落</p>
             </div>
-            <div class=\"gallery-item\">
-                <div class=\"photo-placeholder\">🎡</div>
-                <p class=\"photo-caption\">游乐园的一天</p>
+            <div class="gallery-item">
+                <div class="photo-placeholder">🎡</div>
+                <p class="photo-caption">游乐园的一天</p>
             </div>
-            <div class=\"gallery-item\">
-                <div class=\"photo-placeholder\">🎄</div>
-                <p class=\"photo-caption\">第一个圣诞节</p>
+            <div class="gallery-item">
+                <div class="photo-placeholder">🎄</div>
+                <p class="photo-caption">第一个圣诞节</p>
             </div>
-            <div class=\"gallery-item\">
-                <div class=\"photo-placeholder\">🍳</div>
-                <p class=\"photo-caption\">一起做饭</p>
+            <div class="gallery-item">
+                <div class="photo-placeholder">🍳</div>
+                <p class="photo-caption">一起做饭</p>
             </div>
-            <div class=\"gallery-item\">
-                <div class=\"photo-placeholder\">🎁</div>
-                <p class=\"photo-caption\">惊喜礼物</p>
+            <div class="gallery-item">
+                <div class="photo-placeholder">🎁</div>
+                <p class="photo-caption">惊喜礼物</p>
             </div>
         </div>
-        <p class=\"gallery-hint\">💡 提示：你可以将照片放在 images 文件夹中，然后修改代码引用它们</p>
+        <p class="gallery-hint">💡 提示：你可以将照片放在 images 文件夹中，然后修改代码引用它们</p>
     </section>
 
     <!-- 关于我们 -->
-    <section id=\"about\" class=\"about-section\">
-        <h2 class=\"section-title\">关于我们</h2>
+    <section id="about" class="about-section">
+        <h2 class="section-title">关于我们</h2>
         
-        <div class=\"about-container\">
-            <div class=\"about-card\">
-                <div class=\"avatar\">👨</div>
+        <div class="about-container">
+            <div class="about-card">
+                <div class="avatar">👨</div>
                 <h3>他</h3>
-                <p class=\"about-desc\">一个爱笑、爱她、爱生活的男孩。最大的愿望就是让她每天都开心。</p>
-                <div class=\"about-stats\">
-                    <div class=\"stat\">
-                        <span class=\"stat-number\">∞</span>
-                        <span class=\"stat-label\">爱她的天数</span>
+                <p class="about-desc">一个爱笑、爱她、爱生活的男孩。最大的愿望就是让她每天都开心。</p>
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">爱她的天数</span>
                     </div>
                 </div>
             </div>
             
-            <div class=\"love-icon\">💑</div>
+            <div class="love-icon">💑</div>
             
-            <div class=\"about-card\">
-                <div class=\"avatar\">👩</div>
+            <div class="about-card">
+                <div class="avatar">👩</div>
                 <h3>她</h3>
-                <p class=\"about-desc\">一个温柔、善良、可爱的女孩。是他的阳光，是他的一切。</p>
-                <div class=\"about-stats\">
-                    <div class=\"stat\">
-                        <span class=\"stat-number\">∞</span>
-                        <span class=\"stat-label\">被爱的次数</span>
+                <p class="about-desc">一个温柔、善良、可爱的女孩。是他的阳光，是他的一切。</p>
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">被爱的次数</span>
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class=\"love-quote\">
+        <div class="love-quote">
             <blockquote>
-                \"遇见你之前，我没有想过结婚；遇见你之后，我没想过别人。\"
+                "遇见你之前，我没有想过结婚；遇见你之后，我没想过别人。"
             </blockquote>
             <cite>—— 我们的故事，还在继续...</cite>
         </div>
     </section>
 
     <!-- 页脚 -->
-    <footer class=\"footer\">
+    <footer class="footer">
         <p>Made with ❤️ for us</p>
-        <p class=\"footer-date\">© 2024 - 永远</p>
+        <p class="footer-date">© 2024 - 永远</p>
     </footer>
 
-    <script src=\"js/main.js\"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

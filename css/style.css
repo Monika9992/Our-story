@@ -1,4 +1,4 @@
-﻿/* ===== 全局样式 ===== */
+/* ===== 全局样式 ===== */
 * {
     margin: 0;
     padding: 0;
@@ -253,82 +253,80 @@ body {
 }
 
 /* ===== 时间线 ===== */
-.timeline-section {
+
+
+/* ===== 照片墙 ===== */
+
+/* ===== 故事卡片网格 ===== */
+.stories-section {
     padding: 6rem 5%;
     position: relative;
     z-index: 1;
 }
 
-.timeline {
-    max-width: 1000px;
+.stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
     margin: 0 auto;
-    position: relative;
 }
 
-.timeline::before {
+.story-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 107, 138, 0.15);
+    text-align: center;
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(40px);
+    position: relative;
+    overflow: hidden;
+}
+
+.story-card::before {
     content: '';
     position: absolute;
-    left: 50%;
     top: 0;
-    bottom: 0;
-    width: 3px;
-    background: var(--gradient-2);
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--card-color, var(--gradient-2));
 }
 
-.timeline-item {
-    margin-bottom: 3rem;
-    position: relative;
-    width: 50%;
-    padding: 0 3rem;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.6s ease;
-}
-
-.timeline-item.visible {
+.story-card.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-.timeline-item.left {
-    left: 0;
-    text-align: right;
+.story-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--card-color, var(--primary-color));
+    box-shadow: 0 15px 40px rgba(255, 107, 138, 0.2);
 }
 
-.timeline-item.right {
-    left: 50%;
-    text-align: left;
-}
-
-.timeline-content {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    padding: 2rem;
-    border-radius: 15px;
-    border: 1px solid rgba(255, 107, 138, 0.2);
-    transition: all 0.3s ease;
-}
-
-.timeline-content:hover {
-    transform: scale(1.02);
-    border-color: var(--primary-color);
-    box-shadow: 0 10px 30px rgba(255, 107, 138, 0.2);
-}
-
-.timeline-icon {
-    font-size: 2.5rem;
+.card-emoji {
+    font-size: 3rem;
     margin-bottom: 1rem;
+    display: inline-block;
+    animation: bounce 2s ease-in-out infinite;
 }
 
-.timeline-content h3 {
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.story-card h3 {
     font-family: 'Noto Serif SC', serif;
-    font-size: 1.5rem;
-    color: var(--primary-color);
+    font-size: 1.4rem;
+    color: var(--card-color, var(--primary-color));
     margin-bottom: 0.5rem;
 }
 
-.timeline-date {
+.card-date {
     display: inline-block;
     color: var(--accent-color);
     font-size: 0.9rem;
@@ -338,33 +336,11 @@ body {
     border-radius: 20px;
 }
 
-.timeline-content p {
+.story-card p {
     color: var(--text-muted);
     line-height: 1.8;
-}
-
-.timeline-item::after {
-    content: '💖';
-    position: absolute;
-    top: 2rem;
-    width: 30px;
-    height: 30px;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.timeline-item.left::after {
-    right: -15px;
-}
-
-.timeline-item.right::after {
-    left: -15px;
-}
-
-/* ===== 照片墙 ===== */
-.gallery-section {
+    font-size: 0.95rem;
+}.gallery-section {
     padding: 6rem 5%;
     position: relative;
     z-index: 1;

@@ -1,7 +1,7 @@
-﻿// ===== 计算在一起的天数 =====
+// ===== 计算在一起的天数 =====
 function calculateDaysTogether() {
     // TODO: 修改这里为你们真正的在一起日期
-    const togetherDate = new Date('2024-02-14');
+    const togetherDate = new Date('2026-01-19');
     const today = new Date();
     const diffTime = Math.abs(today - togetherDate);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
@@ -32,7 +32,7 @@ function animateNumber(element, target) {
 
 // ===== 滚动显示动画 =====
 function handleScrollAnimations() {
-    const timelineItems = document.querySelectorAll('.timeline-item');
+    const timelineItems = document.querySelectorAll('.story-card');
     
     timelineItems.forEach(item => {
         const rect = item.getBoundingClientRect();
