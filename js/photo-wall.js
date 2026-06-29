@@ -42,7 +42,7 @@ function initMap() {
                     type: 'map',
                     map: 'CHINA',
                     roam: true,
-                    zoom: 1.8,
+                    zoom: 1.4,
                     label: {
                         show: true,
                         color: 'rgba(0, 212, 255, 0.9)',
