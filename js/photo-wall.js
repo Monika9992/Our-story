@@ -6,7 +6,7 @@ function renderMap() {
     // 计算偏移量使地图居中
     var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
     provinceData.forEach(function(p) {
-        var coords = p.path.match(/(\\d+),(\\d+)/g);
+        var coords = p.path.match(/(\d+),(\d+)/g);
         if (coords) {
             coords.forEach(function(c) {
                 var parts = c.split(",");
@@ -25,7 +25,7 @@ function renderMap() {
     
     provinceData.forEach(function(p) {
         // 转换路径坐标
-        var newPath = p.path.replace(/(\\d+),(\\d+)/g, function(m, x, y) {
+        var newPath = p.path.replace(/(\d+),(\d+)/g, function(m, x, y) {
             return (parseInt(x) + offsetX) + "," + (parseInt(y) + offsetY);
         });
         
