@@ -9,170 +9,117 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- 粒子背景 -->
-    <div class="particles" id="particles"></div>
-    
-    <!-- 导航栏 -->
+    <canvas id="starCanvas"></canvas>
     <nav class="navbar">
-        <div class="nav-brand">❤️ 我们的故事</div>
+        <div class="nav-brand">Our Story</div>
         <ul class="nav-links">
             <li><a href="#home">首页</a></li>
-            <li><a href="#timeline">故事</a></li>
+            <li><a href="#timeline">纪念日</a></li>
             <li><a href="#gallery">相册</a></li>
+            <li><a href="#letter">情书</a></li>
             <li><a href="#about">关于我们</a></li>
         </ul>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <div class="hamburger"><span></span><span></span><span></span></div>
     </nav>
-
-    <!-- 首页英雄区 -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1 class="hero-title">我们俩的故事</h1>
             <p class="hero-subtitle">从相遇的那一刻起，每一天都是美好的</p>
+            <div class="love-timer" id="loveTimer">
+                <div class="timer-row">
+                    <span class="timer-unit"><span id="timerYears">0</span>年</span>
+                    <span class="timer-sep">·</span>
+                    <span class="timer-unit"><span id="timerMonths">0</span>月</span>
+                    <span class="timer-sep">·</span>
+                    <span class="timer-unit"><span id="timerDays">0</span>天</span>
+                    <span class="timer-sep">·</span>
+                    <span class="timer-unit"><span id="timerHours">00</span>时</span>
+                    <span class="timer-sep">·</span>
+                    <span class="timer-unit"><span id="timerMinutes">00</span>分</span>
+                    <span class="timer-sep">·</span>
+                    <span class="timer-unit"><span id="timerSeconds">00</span>秒</span>
+                </div>
+                <p class="timer-label">我们已经相爱了</p>
+            </div>
             <div class="hero-date">
-                <span class="date-label">在一起</span>
+                <span class="date-label">累计在一起</span>
                 <span class="date-count" id="heroDaysTogether">--</span>
                 <span class="date-label">天</span>
             </div>
             <a href="#timeline" class="scroll-btn">查看我们的纪念日 ↓</a>
         </div>
         <div class="floating-hearts">
-            <span class="heart">💕</span>
-            <span class="heart">💖</span>
-            <span class="heart">✨</span>
-            <span class="heart">💗</span>
-            <span class="heart">🌹</span>
+            <span class="heart">💕</span><span class="heart">💖</span><span class="heart">✨</span>
+            <span class="heart">💗</span><span class="heart">🌹</span>
         </div>
     </section>
-
-    <!-- 纪念日 -->
     <section id="timeline" class="memorial-section">
         <h2 class="section-title">我们的纪念日</h2>
         <p class="section-subtitle">每一个日子都值得铭记</p>
-        
         <div class="memorial-grid">
-            <div class="memorial-card">
-                <div class="memorial-emoji">💑</div>
-                <h3>在一起纪念日</h3>
-                <span class="memorial-date">2025年7月5日</span>
-                <p class="memorial-detail">从那天起，两颗心紧紧相连</p>
-                <div class="memorial-days" id="togetherDays">0</div>
-                <span class="memorial-days-label">天</span>
-            </div>
-            
-            <div class="memorial-card">
-                <div class="memorial-emoji">💒</div>
-                <h3>结婚纪念日</h3>
-                <span class="memorial-date">2026年1月19日</span>
-                <p class="memorial-detail">执子之手，与子偕老</p>
-                <div class="memorial-days" id="marriedDays">0</div>
-                <span class="memorial-days-label">天</span>
-            </div>
-            
-            <div class="memorial-card">
-                <div class="memorial-emoji">👸</div>
-                <h3>老婆生日</h3>
-                <span class="memorial-date">农历正月廿一（公历2月27日）</span>
-                <p class="memorial-detail">你是世界上最美好的女孩</p>
-                <div class="memorial-years" id="wifeAge">0</div>
-                <span class="memorial-years-label">岁</span>
-            </div>
-            
-            <div class="memorial-card">
-                <div class="memorial-emoji">🤴</div>
-                <h3>老公生日</h3>
-                <span class="memorial-date">农历腊月十三（公历1月11日）</span>
-                <p class="memorial-detail">努力成为更好的人来守护你</p>
-                <div class="memorial-years" id="husbandAge">0</div>
-                <span class="memorial-years-label">岁</span>
-            </div>
+            <div class="memorial-card"><div class="memorial-emoji">💑</div><h3>在一起纪念日</h3><span class="memorial-date">2025年7月5日</span><p class="memorial-detail">从那天起，两颗心紧紧相连</p><div class="memorial-days" id="togetherDays">0</div><span class="memorial-days-label">天</span></div>
+            <div class="memorial-card"><div class="memorial-emoji">💒</div><h3>结婚纪念日</h3><span class="memorial-date">2026年1月19日</span><p class="memorial-detail">执子之手，与子偕老</p><div class="memorial-days" id="marriedDays">0</div><span class="memorial-days-label">天</span></div>
+            <div class="memorial-card"><div class="memorial-emoji">👸</div><h3>老婆生日</h3><span class="memorial-date">农历正月廿一（公历2月27日）</span><p class="memorial-detail">你是世界上最美好的女孩</p><div class="memorial-years" id="wifeAge">0</div><span class="memorial-years-label">岁</span></div>
+            <div class="memorial-card"><div class="memorial-emoji">🤴</div><h3>老公生日</h3><span class="memorial-date">农历腊月十三（公历1月11日）</span><p class="memorial-detail">努力成为更好的人来守护你</p><div class="memorial-years" id="husbandAge">0</div><span class="memorial-years-label">岁</span></div>
         </div>
     </section>
-
-    <!-- 照片墙 -->
+    <section id="countdown" class="countdown-section">
+        <h2 class="section-title">即将到来的美好</h2>
+        <p class="section-subtitle">每一个即将到来的日子都让人期待</p>
+        <div class="countdown-grid">
+            <div class="countdown-card"><div class="countdown-emoji">🎂</div><h3>老婆生日</h3><span class="countdown-date">每年2月27日</span><div class="countdown-numbers" id="wifeBdayCountdown">--</div><span class="countdown-label">天后</span></div>
+            <div class="countdown-card"><div class="countdown-emoji">💒</div><h3>结婚纪念日</h3><span class="countdown-date">每年1月19日</span><div class="countdown-numbers" id="marriedAnnivCountdown">--</div><span class="countdown-label">天后</span></div>
+            <div class="countdown-card"><div class="countdown-emoji">💝</div><h3>在一起纪念日</h3><span class="countdown-date">每年7月5日</span><div class="countdown-numbers" id="annivCountdown">--</div><span class="countdown-label">天后</span></div>
+        </div>
+    </section>
     <section id="gallery" class="gallery-section">
         <h2 class="section-title">美好瞬间</h2>
         <p class="section-subtitle">每一张照片都是一个珍贵的回忆</p>
-        
         <div class="gallery-grid">
-            <div class="gallery-item">
-                <div class="photo-placeholder">📸</div>
-                <p class="photo-caption">第一次合照</p>
-            </div>
-            <div class="gallery-item">
-                <div class="photo-placeholder">🌅</div>
-                <p class="photo-caption">一起看的日落</p>
-            </div>
-            <div class="gallery-item">
-                <div class="photo-placeholder">🎡</div>
-                <p class="photo-caption">游乐园的一天</p>
-            </div>
-            <div class="gallery-item">
-                <div class="photo-placeholder">🎄</div>
-                <p class="photo-caption">第一个圣诞节</p>
-            </div>
-            <div class="gallery-item">
-                <div class="photo-placeholder">🍳</div>
-                <p class="photo-caption">一起做饭</p>
-            </div>
-            <div class="gallery-item">
-                <div class="photo-placeholder">🎁</div>
-                <p class="photo-caption">惊喜礼物</p>
-            </div>
+            <div class="gallery-item" data-index="0"><div class="photo-placeholder">📸</div><p class="photo-caption">第一次合照</p></div>
+            <div class="gallery-item" data-index="1"><div class="photo-placeholder">🌅</div><p class="photo-caption">一起看的日落</p></div>
+            <div class="gallery-item" data-index="2"><div class="photo-placeholder">🎡</div><p class="photo-caption">游乐园的一天</p></div>
+            <div class="gallery-item" data-index="3"><div class="photo-placeholder">🎄</div><p class="photo-caption">第一个圣诞节</p></div>
+            <div class="gallery-item" data-index="4"><div class="photo-placeholder">🍳</div><p class="photo-caption">一起做饭</p></div>
+            <div class="gallery-item" data-index="5"><div class="photo-placeholder">🎁</div><p class="photo-caption">惊喜礼物</p></div>
         </div>
         <p class="gallery-hint">💡 提示：你可以将照片放在 images 文件夹中，然后修改代码引用它们</p>
     </section>
-
-    <!-- 关于我们 -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <span class="lightbox-prev">&#10094;</span>
+        <span class="lightbox-next">&#10095;</span>
+        <div class="lightbox-content">
+            <div class="lightbox-text" id="lightboxText"></div>
+        </div>
+    </div>
+    <section id="letter" class="letter-section">
+        <h2 class="section-title">写给老婆的情书</h2>
+        <p class="section-subtitle">有些话，想慢慢说给你听</p>
+        <div class="letter-container">
+            <div class="letter-paper">
+                <div class="letter-line"></div><div class="letter-line"></div><div class="letter-line"></div>
+                <div class="letter-line"></div><div class="letter-line"></div><div class="letter-line"></div>
+                <div class="letter-line"></div><div class="letter-line"></div>
+                <div id="typewriter" class="typewriter-text"></div>
+                <span class="cursor" id="cursor"></span>
+            </div>
+            <button class="letter-btn" id="playLetter">播放情书 ❤️</button>
+        </div>
+    </section>
     <section id="about" class="about-section">
         <h2 class="section-title">关于我们</h2>
-        
         <div class="about-container">
-            <div class="about-card">
-                <div class="avatar">👨</div>
-                <h3>他</h3>
-                <p class="about-desc">一个爱笑、爱她、爱生活的男孩。最大的愿望就是让她每天都开心。</p>
-                <div class="about-stats">
-                    <div class="stat">
-                        <span class="stat-number">∞</span>
-                        <span class="stat-label">爱她的天数</span>
-                    </div>
-                </div>
-            </div>
-            
+            <div class="about-card"><div class="avatar">👨</div><h3>他</h3><p class="about-desc">一个爱笑、爱她、爱生活的男孩。最大的愿望就是让她每天都开心。</p><div class="about-stats"><div class="stat"><span class="stat-number">∞</span><span class="stat-label">爱她的天数</span></div></div></div>
             <div class="love-icon">💑</div>
-            
-            <div class="about-card">
-                <div class="avatar">👩</div>
-                <h3>她</h3>
-                <p class="about-desc">一个温柔、善良、可爱的女孩。是他的阳光，是他的一切。</p>
-                <div class="about-stats">
-                    <div class="stat">
-                        <span class="stat-number">∞</span>
-                        <span class="stat-label">被爱的次数</span>
-                    </div>
-                </div>
-            </div>
+            <div class="about-card"><div class="avatar">👩</div><h3>她</h3><p class="about-desc">一个温柔、善良、可爱的女孩。是他的阳光，是他的一切。</p><div class="about-stats"><div class="stat"><span class="stat-number">∞</span><span class="stat-label">被爱的次数</span></div></div></div>
         </div>
-        
         <div class="love-quote">
-            <blockquote>
-                "遇见你之前，我没有想过结婚；遇见你之后，我没想过别人。"
-            </blockquote>
+            <blockquote>"遇见你之前，我没有想过结婚；遇见你之后，我没想过别人。"</blockquote>
             <cite>—— 我们的故事，还在继续...</cite>
         </div>
     </section>
-
-    <!-- 页脚 -->
-    <footer class="footer">
-        <p>Made with ❤️ for us</p>
-        <p class="footer-date">© 2025 - 永远</p>
-    </footer>
-
+    <footer class="footer"><p>Made with ❤️ for us</p><p class="footer-date">© 2025 - 永远</p></footer>
     <script src="js/main.js"></script>
 </body>
 </html>
