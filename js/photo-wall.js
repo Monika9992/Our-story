@@ -88,36 +88,129 @@ function initMap() {
         });
 }
 
-// 打开省份详情
+// 打开省份详情 - 在地图上显示照片
+var currentProvince = null;
+var photoElements = [];
+var lineElements = [];
+
 function openProvince(provinceName) {
-    var overlay = document.getElementById('modalOverlay');
-    var title = document.getElementById('modalTitle');
-    var tabs = document.getElementById('citiesTabs');
-    var grid = document.getElementById('photoGrid');
+    currentProvince = provinceName;
     
-    title.textContent = provinceName + '的照片';
-    tabs.innerHTML = '';
-    grid.innerHTML = '';
+    // 隐藏弹窗，直接在地图上显示
+    document.getElementById('modalOverlay').classList.remove('active');
+    
+    // 清除旧照片和线条
+    clearOldPhotos();
     
     var cities = cityMapping[provinceName];
     if (!cities || cities.length === 0) {
         cities = ['全部'];
     }
     
+    // 在地图上为每个城市创建照片节点
     cities.forEach(function(city, index) {
-        var tab = document.createElement('button');
-        tab.className = 'city-tab' + (index === 0 ? ' active' : '');
-        tab.textContent = city;
-        tab.addEventListener('click', function() {
-            tabs.querySelectorAll('.city-tab').forEach(function(t) { t.classList.remove('active'); });
-            tab.classList.add('active');
-            loadPhotos(provinceName, city);
-        });
-        tabs.appendChild(tab);
+        setTimeout(function() {
+            addPhotoToMap(provinceName, city, index, cities.length);
+        }, index * 300);
     });
+}
+
+function addPhotoToMap(province, city, index, total) {
+    var chart = echarts.getInstanceByDom(document.getElementById('chinaMap'));
+    if (!chart) return;
     
-    loadPhotos(provinceName, cities[0]);
-    overlay.classList.add('active');
+    // 获取省份的地理中心
+    var geoJSON = echarts.getMap('CHINA').geoJSON;
+    var provinceCoord = null;
+    
+    // 查找省份坐标
+    if (geoJSON && geoJSON.features) {
+        for (var i = 0; i < geoJSON.features.length; i++) {
+            var name = geoJSON.features[i].properties.name;
+            if (name === province || name.replace('省', '') === province || name.replace('市', '') === province || name.replace('自治区', '') === province) {
+                var centroid = getCentroid(geoJSON.features[i]);
+                provinceCoord = chart.convertToPixel({seriesId: 'map'}, centroid);
+                break;
+            }
+        }
+    }
+    
+    if (!provinceCoord) return;
+    
+    // 计算照片位置（围绕省份中心呈扇形分布）
+    var angle = (index / total) * Math.PI * 2 - Math.PI / 2;
+    var radius = 120 + Math.random() * 80;
+    var x = provinceCoord[0] + Math.cos(angle) * radius;
+    var y = provinceCoord[1] + Math.sin(angle) * radius;
+    
+    // 创建照片元素
+    var photoDiv = document.createElement('div');
+    photoDiv.className = 'map-photo';
+    photoDiv.style.cssText = 'position:absolute;width:' + (40 + Math.random()*30) + 'px;height:' + (40 + Math.random()*30) + 'px;border-radius:50%;background:rgba(0,180,255,0.3);border:2px solid rgba(0,212,255,0.8);display:flex;align-items:center;justify-content:center;font-size:16px;opacity:0;transition:all 0.5s ease;cursor:pointer;z-index:10;';
+    photoDiv.innerHTML = '📷';
+    photoDiv.title = city;
+    photoDiv.style.left = x + 'px';
+    photoDiv.style.top = y + 'px';
+    
+    // 添加到地图容器
+    var mapContainer = document.getElementById('chinaMap');
+    mapContainer.appendChild(photoDiv);
+    photoElements.push(photoDiv);
+    
+    // 延迟显示
+    setTimeout(function() {
+        photoDiv.style.opacity = '1';
+        photoDiv.style.transform = 'scale(1.2)';
+    }, 50);
+    
+    // 创建连线
+    createLine(provinceCoord, [x, y], city);
+    
+    // 点击照片查看大图
+    photoDiv.addEventListener('click', function() {
+        openLightbox(city);
+    });
+}
+
+function createLine(from, to, label) {
+    var lineDiv = document.createElement('div');
+    lineDiv.className = 'photo-line';
+    
+    var dx = to[0] - from[0];
+    var dy = to[1] - from[1];
+    var length = Math.sqrt(dx*dx + dy*dy);
+    var angle = Math.atan2(dy, dx) * 180 / Math.PI;
+    
+    lineDiv.style.cssText = 'position:absolute;height:1px;background:linear-gradient(90deg, rgba(0,212,255,0.6), rgba(0,212,255,0.1));transform-origin:0 0;opacity:0;transition:opacity 0.5s ease;z-index:5;pointer-events:none;';
+    lineDiv.style.width = length + 'px';
+    lineDiv.style.left = from[0] + 'px';
+    lineDiv.style.top = from[1] + 'px';
+    lineDiv.style.transform = 'rotate(' + angle + 'deg)';
+    
+    var mapContainer = document.getElementById('chinaMap');
+    mapContainer.appendChild(lineDiv);
+    lineElements.push(lineDiv);
+    
+    setTimeout(function() {
+        lineDiv.style.opacity = '1';
+    }, 100);
+}
+
+function clearOldPhotos() {
+    photoElements.forEach(function(el) { el.remove(); });
+    lineElements.forEach(function(el) { el.remove(); });
+    photoElements = [];
+    lineElements = [];
+}
+
+function getCentroid(feature) {
+    var coords = feature.geometry.coordinates[0];
+    var sumX = 0, sumY = 0;
+    for (var i = 0; i < coords.length; i++) {
+        sumX += coords[i][0];
+        sumY += coords[i][1];
+    }
+    return [sumX / coords.length, sumY / coords.length];
 }
 
 // 加载照片
