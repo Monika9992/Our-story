@@ -44,8 +44,9 @@ body {
 .map-container {
     display: flex; justify-content: center; align-items: center;
     padding: 2rem; min-height: calc(100vh - 60px);
-    background: radial-gradient(ellipse at center, #0a1628 0%, #050d1a 100%);
+    background: linear-gradient(180deg, #020b1a 0%, #0a1628 50%, #020b1a 100%);
     position: relative;
+    overflow: hidden;
 }
 
 /* 网格背景 */
@@ -54,42 +55,56 @@ body {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background-image:
-        linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
+        linear-gradient(rgba(0, 150, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 150, 255, 0.04) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+}
+
+/* 扫描线效果 */
+.map-container::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 150, 255, 0.01) 2px,
+        rgba(0, 150, 255, 0.01) 4px
+    );
     pointer-events: none;
 }
 
 .china-map {
     max-width: 750px; width: 100%;
-    filter: drop-shadow(0 0 30px rgba(0, 180, 255, 0.3));
     position: relative;
     z-index: 1;
 }
 
 .china-map path {
-    fill: rgba(0, 100, 180, 0.06);
-    stroke: rgba(0, 212, 255, 0.5);
-    stroke-width: 0.6;
+    fill: rgba(0, 80, 160, 0.12);
+    stroke: rgba(0, 180, 255, 0.6);
+    stroke-width: 0.8;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .china-map path:hover {
-    fill: rgba(0, 212, 255, 0.3);
+    fill: rgba(0, 180, 255, 0.35);
     stroke: #00d4ff;
     stroke-width: 1.5;
-    filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5));
+    filter: drop-shadow(0 0 6px rgba(0, 212, 255, 0.4));
 }
 
 .province-label {
     font-size: 8px;
     font-family: Noto Sans SC, sans-serif;
-    fill: rgba(0, 212, 255, 0.85);
+    fill: rgba(0, 212, 255, 0.9);
     pointer-events: none;
     text-anchor: middle;
     dominant-baseline: central;
-    font-weight: 400;
+    font-weight: 300;
     letter-spacing: 0.5px;
 }
 
