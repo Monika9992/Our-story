@@ -1,3 +1,6 @@
+// 城市映射数据（从 china-map-data.js 引入）
+var cityMapping = {};
+
 // 初始化 ECharts 地图
 function initMap() {
     var chart = echarts.init(document.getElementById('chinaMap'));
@@ -39,7 +42,7 @@ function initMap() {
                     type: 'map',
                     map: 'CHINA',
                     roam: true,
-                    zoom: 1.2,
+                    zoom: 1.8,
                     label: {
                         show: true,
                         color: 'rgba(0, 212, 255, 0.9)',
