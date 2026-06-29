@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们的照片墙 - 中国地图</title>
+    <link rel="stylesheet" href="css/photo-wall.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="back-btn">&#8592; 返回首页</a>
+        <div class="nav-title">我们的照片墙</div>
+    </nav>
+    <div class="map-container">
+        <svg viewBox="0 0 800 600" class="china-map" id="chinaMap">
+            <!-- 省份将通过JS动态绘制 -->
+        </svg>
+    </div>
+    <!-- 省份详情弹窗 -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <div class="cities-tabs" id="citiesTabs"></div>
+            <div class="photo-grid" id="photoGrid"></div>
+        </div>
+    </div>
+    <!-- 照片预览弹窗 -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <span class="lightbox-prev" id="lightboxPrev">&#10094;</span>
+        <span class="lightbox-next" id="lightboxNext">&#10095;</span>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+    <script src="js/china-map-data.js"></script>
+    <script src="js/photo-wall.js"></script>
+</body>
+</html>
