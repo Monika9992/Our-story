@@ -414,6 +414,35 @@ body {
 .love-quote cite { color: var(--primary-color); font-style: normal; font-size: 1.1rem; }
 
 /* Footer */
+
+/* ===== 照片墙入口 ===== */
+.photo-entry-section {
+    padding: 6rem 5%;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    background: radial-gradient(ellipse at center, rgba(0, 150, 255, 0.08) 0%, transparent 70%);
+}
+
+.photo-entry-btn {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    background: linear-gradient(135deg, #0066cc 0%, #00aaff 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 150, 255, 0.4);
+    letter-spacing: 2px;
+}
+
+.photo-entry-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 170, 255, 0.6);
+    background: linear-gradient(135deg, #0077dd 0%, #00bbff 100%);
+}
 .footer {
     text-align: center; padding: 3rem 2rem;
     background: rgba(0, 0, 0, 0.3);
