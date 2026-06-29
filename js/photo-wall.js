@@ -3,9 +3,34 @@ function renderMap() {
     var svg = document.getElementById("chinaMap");
     if (!svg) return;
     
+    // 计算偏移量使地图居中
+    var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
     provinceData.forEach(function(p) {
+        var coords = p.path.match(/(\\d+),(\\d+)/g);
+        if (coords) {
+            coords.forEach(function(c) {
+                var parts = c.split(",");
+                var x = parseInt(parts[0]), y = parseInt(parts[1]);
+                if (x < minX) minX = x;
+                if (y < minY) minY = y;
+                if (x > maxX) maxX = x;
+                if (y > maxY) maxY = y;
+            });
+        }
+    });
+    var mapWidth = maxX - minX;
+    var mapHeight = maxY - minY;
+    var offsetX = (800 - mapWidth) / 2 - minX;
+    var offsetY = (600 - mapHeight) / 2 - minY;
+    
+    provinceData.forEach(function(p) {
+        // 转换路径坐标
+        var newPath = p.path.replace(/(\\d+),(\\d+)/g, function(m, x, y) {
+            return (parseInt(x) + offsetX) + "," + (parseInt(y) + offsetY);
+        });
+        
         var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        path.setAttribute("d", p.path);
+        path.setAttribute("d", newPath);
         path.setAttribute("data-province", p.name);
         path.title = p.name;
         svg.appendChild(path);
@@ -13,8 +38,8 @@ function renderMap() {
         // 添加省份名称标签
         var text = document.createElementNS("http://www.w3.org/2000/svg", "text");
         text.setAttribute("class", "province-label");
-        text.setAttribute("x", p.center[0]);
-        text.setAttribute("y", p.center[1]);
+        text.setAttribute("x", p.center[0] + offsetX);
+        text.setAttribute("y", p.center[1] + offsetY);
         text.textContent = p.name;
         svg.appendChild(text);
     });
