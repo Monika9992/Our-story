@@ -143,11 +143,23 @@ function addPhotoToMap(province, city, index, total) {
     var x = provinceCoord[0] + Math.cos(angle) * radius;
     var y = provinceCoord[1] + Math.sin(angle) * radius;
     
-    // 创建照片元素
+    // 创建照片元素 - 尝试加载真实图片
     var photoDiv = document.createElement('div');
     photoDiv.className = 'map-photo';
-    photoDiv.style.cssText = 'position:absolute;width:' + (40 + Math.random()*30) + 'px;height:' + (40 + Math.random()*30) + 'px;border-radius:50%;background:rgba(0,180,255,0.3);border:2px solid rgba(0,212,255,0.8);display:flex;align-items:center;justify-content:center;font-size:16px;opacity:0;transition:all 0.5s ease;cursor:pointer;z-index:10;';
-    photoDiv.innerHTML = '📷';
+    var size = 40 + Math.random()*30;
+    photoDiv.style.cssText = 'position:absolute;width:' + size + 'px;height:' + size + 'px;border-radius:50%;background:rgba(0,180,255,0.3);border:2px solid rgba(0,212,255,0.8);display:flex;align-items:center;justify-content:center;font-size:16px;opacity:0;transition:all 0.5s ease;cursor:pointer;z-index:10;overflow:hidden;';
+    
+    // 尝试加载真实照片
+    var imgPath = 'photos/' + province + '/' + city + '/*.jpg';
+    var img = document.createElement('img');
+    img.src = 'photos/' + province + '/' + city + '.jpg';
+    img.style.cssText = 'width:100%;height:100%;object-fit:cover;border-radius:50%;';
+    img.onerror = function() {
+        // 如果图片加载失败，显示 emoji
+        photoDiv.innerHTML = '📷';
+        photoDiv.style.background = 'rgba(0,180,255,0.3)';
+    };
+    photoDiv.appendChild(img);
     photoDiv.title = city;
     photoDiv.style.left = x + 'px';
     photoDiv.style.top = y + 'px';
